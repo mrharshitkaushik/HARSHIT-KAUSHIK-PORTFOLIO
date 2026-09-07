@@ -1,40 +1,793 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="description"
-content="Harshit Kaushik - Aspiring Web Developer Portfolio. HTML, CSS and JavaScript projects.">
+    <meta name="description" content="Harshit Kaushik - Aspiring Web Developer Portfolio">
+    <meta name="author" content="Harshit Kaushik">
 
-<title>Harshit Kaushik | Web Developer</title>
+    <title>Harshit Kaushik | Web Developer</title>
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-:root {
-    --primary: #2563eb;
-    --primary-dark: #1d4ed8;
-    --dark: #111827;
-    --text: #374151;
-    --muted: #6b7280;
-    --bg: #f8fafc;
-    --white: #ffffff;
-    --border: #e5e7eb;
-    --shadow: 0 10px 30px rgba(0,0,0,0.08);
-}
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background: #f5f7fb;
+            color: #222;
+        }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-}
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* NAVBAR */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .navbar {
+            max-width: 1100px;
+            margin: auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 22px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 15px;
+        }
+
+        .hero h2 {
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            margin: 5px;
+            border-radius: 7px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn-light {
+            background: white;
+            color: #2563eb;
+        }
+
+        .btn-dark {
+            background: #111827;
+            color: white;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 70px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 34px;
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            color: #666;
+        }
+
+        /* ABOUT */
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            margin-bottom: 15px;
+        }
+
+        /* SKILLS */
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .skill {
+            background: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+            font-weight: bold;
+        }
+
+        .skill-icon {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        /* PROJECTS */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .project-card h3 {
+            color: #2563eb;
+            margin-bottom: 12px;
+            font-size: 22px;
+        }
+
+        .project-card p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .project-btn {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 6px;
+            margin-right: 8px;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        .project-btn:hover {
+            background: #1e40af;
+        }
+
+        /* CAREER */
+        .career {
+            background: #eef2ff;
+            text-align: center;
+        }
+
+        .career-box {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .career-box h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        /* EDUCATION */
+        .education {
+            background: white;
+        }
+
+        .education-box {
+            max-width: 700px;
+            margin: auto;
+            padding: 30px;
+            background: #f5f7fb;
+            border-radius: 12px;
+        }
+
+        .education-box h3 {
+            color: #2563eb;
+            margin-bottom: 8px;
+        }
+
+        /* CONTACT */
+        .contact {
+            text-align: center;
+        }
+
+        .contact-links {
+            margin-top: 25px;
+        }
+
+        .contact-links a {
+            display: inline-block;
+            margin: 7px;
+            padding: 12px 20px;
+            background: #111827;
+            color: white;
+            border-radius: 7px;
+        }
+
+        .contact-links a:hover {
+            background: #2563eb;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        /* DARK MODE */
+        body.dark {
+            background: #111827;
+            color: #f9fafb;
+        }
+
+        body.dark header,
+        body.dark .about,
+        body.dark .education,
+        body.dark .skill,
+        body.dark .project-card {
+            background: #1f2937;
+        }
+
+        body.dark .project-card p,
+        body.dark .section-title p {
+            color: #d1d5db;
+        }
+
+        body.dark .education-box {
+            background: #374151;
+        }
+
+        body.dark .career {
+            background: #1e293b;
+        }
+
+        .dark-btn {
+            border: none;
+            background: #111827;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* MOBILE */
+        @media (max-width: 800px) {
+
+            .skills {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 65px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            body.dark .nav-links {
+                background: #1f2937;
+            }
+
+            .skills {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero h2 {
+                font-size: 21px;
+            }
+
+            section {
+                padding: 55px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Harshit
+        </div>
+
+        <div class="menu-btn" onclick="toggleMenu()">
+            ☰
+        </div>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li>
+                <button class="dark-btn" onclick="toggleDarkMode()">
+                    🌙
+                </button>
+            </li>
+        </ul>
+
+    </nav>
+
+</header>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>Hi, I'm Harshit Kaushik</h1>
+
+        <h2>Aspiring Web Developer</h2>
+
+        <p>
+            I am learning web development and building responsive,
+            user-friendly websites using HTML, CSS and JavaScript.
+        </p>
+
+        <a href="#projects" class="btn btn-light">
+            View My Projects
+        </a>
+
+        <a href="#contact" class="btn btn-dark">
+            Contact Me
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+<section class="about" id="about">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>About Me</h2>
+            <p>Learning, building and improving every day.</p>
+        </div>
+
+        <div class="about-content">
+
+            <p>
+                Hello! I'm Harshit Kaushik, an aspiring web developer
+                interested in creating modern and responsive websites.
+            </p>
+
+            <p>
+                My current focus is on HTML, CSS and JavaScript.
+                I enjoy turning ideas into practical web projects
+                and continuously improving my development skills.
+            </p>
+
+            <p>
+                My goal is to gain practical experience through projects,
+                internships and junior web development opportunities.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SKILLS -->
+<section id="skills">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>My Skills</h2>
+            <p>Technologies I am currently learning and using.</p>
+        </div>
+
+        <div class="skills">
+
+            <div class="skill">
+                <div class="skill-icon">🌐</div>
+                HTML5
+            </div>
+
+            <div class="skill">
+                <div class="skill-icon">🎨</div>
+                CSS3
+            </div>
+
+            <div class="skill">
+                <div class="skill-icon">⚡</div>
+                JavaScript
+            </div>
+
+            <div class="skill">
+                <div class="skill-icon">💻</div>
+                GitHub
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROJECTS -->
+<section id="projects">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>My Projects</h2>
+
+            <p>
+                Practical projects that demonstrate my web development skills.
+            </p>
+
+        </div>
+
+
+        <div class="projects">
+
+
+            <!-- PROJECT 1 -->
+            <div class="project-card">
+
+                <h3>🏫 EduVision College Website</h3>
+
+                <p>
+                    A professional responsive college website built with
+                    HTML, CSS and JavaScript. It includes courses,
+                    admission enquiry form, responsive navigation,
+                    dark mode and interactive features.
+                </p>
+
+                <a
+                    href="https://mrharshitkaushik.github.io/Project-1/"
+                    target="_blank"
+                    class="project-btn"
+                >
+                    Live Demo
+                </a>
+
+                <a
+                    href="https://github.com/mrharshitkaushik/Project-1"
+                    target="_blank"
+                    class="project-btn"
+                >
+                    GitHub
+                </a>
+
+            </div>
+
+
+            <!-- PROJECT 2 -->
+            <div class="project-card">
+
+                <h3>📝 To-Do List App</h3>
+
+                <p>
+                    A simple task management application designed to
+                    practice JavaScript interactions and user input.
+                </p>
+
+                <a
+                    href="#"
+                    class="project-btn"
+                >
+                    Coming Soon
+                </a>
+
+            </div>
+
+
+            <!-- PROJECT 3 -->
+            <div class="project-card">
+
+                <h3>🧮 JavaScript Calculator</h3>
+
+                <p>
+                    A browser-based calculator created to practice
+                    JavaScript logic, events and user interface design.
+                </p>
+
+                <a
+                    href="#"
+                    class="project-btn"
+                >
+                    Coming Soon
+                </a>
+
+            </div>
+
+
+            <!-- PROJECT 4 -->
+            <div class="project-card">
+
+                <h3>📋 Student Registration Form</h3>
+
+                <p>
+                    A responsive registration form demonstrating
+                    HTML forms, CSS styling and basic JavaScript
+                    validation.
+                </p>
+
+                <a
+                    href="#"
+                    class="project-btn"
+                >
+                    Coming Soon
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CAREER -->
+<section class="career">
+
+    <div class="container">
+
+        <div class="career-box">
+
+            <h3>My Career Goal</h3>
+
+            <p>
+                I am looking for opportunities where I can apply my
+                web development skills, learn from experienced people,
+                build real-world projects and grow as a developer.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EDUCATION -->
+<section class="education" id="education">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Education</h2>
+
+            <p>My academic background.</p>
+
+        </div>
+
+
+        <div class="education-box">
+
+            <h3>Bachelor of Arts (BA)</h3>
+
+            <p>
+                Currently pursuing undergraduate studies.
+            </p>
+
+            <br>
+
+            <h3>Class 12 — CBSE</h3>
+
+            <p>
+                Completed Class 12 with PCM background.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Contact Me</h2>
+
+            <p>
+                Interested in working together or discussing a project?
+            </p>
+
+        </div>
+
+
+        <div class="contact-links">
+
+            <a
+                href="https://github.com/mrharshitkaushik"
+                target="_blank"
+            >
+                GitHub
+            </a>
+
+            <a href="#" target="_blank">
+                LinkedIn
+            </a>
+
+            <a href="mailto:your-email@example.com">
+                Email
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <p>
+        © <span id="year"></span> Harshit Kaushik.
+        All Rights Reserved.
+    </p>
+
+    <p>
+        Aspiring Web Developer
+    </p>
+
+</footer>
+
+
+<script>
+
+    // MOBILE MENU
+    function toggleMenu() {
+
+        document
+            .getElementById("navLinks")
+            .classList
+            .toggle("active");
+
+    }
+
+
+    // DARK MODE
+    function toggleDarkMode() {
+
+        document.body.classList.toggle("dark");
+
+    }
+
+
+    // CURRENT YEAR
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+</script>
+
+</body>
+</html>}
 
 /* NAVBAR */
 
